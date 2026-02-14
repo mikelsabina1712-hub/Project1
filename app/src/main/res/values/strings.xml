@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LifeCapsule</string>
+
+    <!-- Titles -->
+    <string name="signup_title">Sign Up</string>
+    <string name="login_title">Login</string>
+    <string name="home_title">Home</string>
+    <string name="account_settings_title">Account Settings</string>
+    <string name="favorite_music_title">Favorite Music</string>
+    <string name="bucket_list_title">My Bucket List</string>
+    <string name="favorite_memories_title">Favorite Memories</string>
+    <string name="helpful_links_title">Helpful Links</string>
+    <string name="home_icon_desc">Return to Home</string>
+    <!-- Messages / Errors -->
+    <string name="invalid_username">Username must be exactly 5 lowercase alphanumeric characters, no spaces.</string>
+    <string name="invalid_password">Password must be exactly 8 alphanumeric characters, start with uppercase, contain a number, no spaces.</string>
+    <string name="fields_required">All fields are required.</string>
+    <string name="invalid_login">Invalid username or password.</string>
+    <string name="password_changed">Password changed successfully.</string>
+
+</resources>
