@@ -33,26 +33,26 @@ public class FavoriteMusic extends AppCompatActivity {
             return insets;
         });
 
-        // Set up spinner with songs.
+        // Spinner with available songs
         Spinner spinner = findViewById(R.id.spinner_songs);
-        String[] songs = {"Select Song", "Song 1: Bohemian Rhapsody", "Song 2: Imagine", "Song 3: Stairway to Heaven"};
+        String[] songs = {"Select Song", "Song 1: Me Va Me Va", "Song 2: ¿Y Cómo Es Él?", "Song 3: Viva La Vida"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, songs);
         spinner.setAdapter(adapter);
 
-        // Setting an OnItemSelectedListener on the spinner.
+        // Spinner for select item
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
-                    return; // Do nothing for "Select Song"
+                    return;
                 }
                 String url = "";
                 if (position == 1) {
-                    url = "https://www.youtube.com/watch?v=fJ9rUzIMcZQ"; // Bohemian Rhapsody
+                    url = "https://www.youtube.com/watch?v=z-I6JNO6hvY&list=RDz-I6JNO6hvY";
                 } else if (position == 2) {
-                    url = "https://www.youtube.com/watch?v=YkgkThdzX-8"; // Imagine
+                    url = "https://www.youtube.com/watch?v=f9sGyvLfQk4&list=RDz-I6JNO6hvY";
                 } else if (position == 3) {
-                    url = "https://www.youtube.com/watch?v=QxIWDmmqZzY"; // Stairway to Heaven
+                    url = "https://www.youtube.com/watch?v=dvgZkm1xWPE&list=RDdvgZkm1xWPE";
                 }
                 Log.d("Music log", "====Song selected: " + songs[position] + "====");
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
@@ -61,15 +61,14 @@ public class FavoriteMusic extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // Do nothing
             }
         });
 
-        // Set username in header (using global User.name)
+        // Header username
         TextView tvHeader = findViewById(R.id.tv_username_header);
         tvHeader.setText("Welcome, " + User.name);
 
-        // Home icon click listener
+        // Home icon click
         ImageView ivHome = findViewById(R.id.iv_home_icon);
         ivHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +76,6 @@ public class FavoriteMusic extends AppCompatActivity {
                 Log.d("FavoriteMusic log", "====Home icon clicked - returning to Home====");
                 Intent intent = new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
-                // Optional: finish();  // close current activity
             }
         });
 

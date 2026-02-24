@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:padding="16dp">
 
     <ImageView
@@ -56,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:fontFamily="@font/bruno_ace"
         android:text="@string/account_settings_title"
         android:textColor="@color/black"
         android:textSize="24sp"
@@ -95,6 +97,7 @@
         android:layout_height="52dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="#4CAF50"
+        android:fontFamily="sans-serif"
         android:hint="New Password"
         android:inputType="textPassword"
         android:textColor="@color/black"
@@ -110,6 +113,7 @@
         android:layout_height="56dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#2196F3"
+        android:fontFamily="sans-serif"
         android:text="Change Password"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

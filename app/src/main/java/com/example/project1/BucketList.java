@@ -18,7 +18,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class BucketList extends AppCompatActivity {
 
-    // Declaring view objects.
     EditText etGoal;
     CheckBox cbItem1;
     CheckBox cbItem2;
@@ -41,7 +40,8 @@ public class BucketList extends AppCompatActivity {
         cbItem2 = findViewById(R.id.cb_item2);
 
         Button btnSave = findViewById(R.id.btn_save);
-        // Setting an onClickListener on the save button.
+
+        // Save button
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,7 +65,7 @@ public class BucketList extends AppCompatActivity {
                     BucketListData.item2Visible = true;
                     Log.d("Bucket log", "====Item 2 added: " + goal + "====");
                 } else {
-                    // Replace second for additional items.
+                    // Replace the text of the second checkbox
                     cbItem2.setText(goal);
                     BucketListData.item2 = goal;
                     Log.d("Bucket log", "====Replaced item 2: " + goal + "====");
@@ -86,11 +86,10 @@ public class BucketList extends AppCompatActivity {
                 Log.d("BucketList log", "====Home icon clicked - returning to Home====");
                 Intent intent = new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
-                // Optional: finish();   // close current screen
             }
         });
     }
-    // Bonus: Restore from globals on resume (Activity Lifecycle from Lecture 5).
+    // Bonus
     @Override
     protected void onResume() {
         super.onResume();
@@ -106,7 +105,7 @@ public class BucketList extends AppCompatActivity {
         }
     }
 
-    // Bonus: Save to globals on pause (already done in save, but log for debug).
+    // Bonus
     @Override
     protected void onPause() {
         super.onPause();

@@ -24,7 +24,6 @@ public class AccountSettings extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_account_settings);
 
-        // Handle system insets (padding for status/navigation bars) - as shown in lectures
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -43,14 +42,14 @@ public class AccountSettings extends AppCompatActivity {
 
         // Change password button
         Button btnChange = findViewById(R.id.btn_change_password);
-        // Setting an onClickListener on the change password button
+
+        // Change password listener
         btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String newPassword = etNewPassword.getText().toString().trim();
 
                 if (!newPassword.equals("")) {
-                    // Simple password change (no extra validation required by spec)
                     User.password = newPassword;
                     tvPassword.setText("Password: " + User.password);
                     Toast.makeText(AccountSettings.this, getString(R.string.password_changed), Toast.LENGTH_SHORT).show();
@@ -67,20 +66,14 @@ public class AccountSettings extends AppCompatActivity {
         tvHeader.setText("Welcome, " + User.name);
 
 
-        // Clickable home icon in top-right corner - added for better navigation
+        // Home icon click
         ImageView ivHome = findViewById(R.id.iv_home_icon);
-        // Setting an onClickListener on the home icon
         ivHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d("AccountSettings log", "====Home icon clicked - returning to Home====");
-
-                // Go back to Home screen
                 Intent intent = new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
-
-                // Optional: close this activity so user doesn't return with back button
-                // finish();
             }
         });
     }
