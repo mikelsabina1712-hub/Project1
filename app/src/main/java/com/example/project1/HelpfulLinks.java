@@ -29,44 +29,44 @@ public class HelpfulLinks extends AppCompatActivity {
             return insets;
         });
 
-        // Set listeners for link buttons.
+        // Listeners for link buttons
         findViewById(R.id.btn_link1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openUrl("https://developer.android.com");
-                Log.d("Links log", "====Opened Android Developer Guide====");
+                openUrl("https://www.lamoncloa.gob.es/Paginas/index.aspx");
+                Log.d("Links log", "====Opened Spanish Government Web====");
             }
         });
 
         findViewById(R.id.btn_link2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openUrl("https://stackoverflow.com");
-                Log.d("Links log", "====Opened Stack Overflow====");
+                openUrl("https://cs.richmond.edu/Academics/courses/index.html");
+                Log.d("Links log", "====Opened CS Richmond Courses====");
             }
         });
 
         findViewById(R.id.btn_link3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openUrl("https://wikipedia.org");
-                Log.d("Links log", "====Opened Wikipedia====");
+                openUrl("https://www.elmundo.es/");
+                Log.d("Links log", "====Opened El Mundo====");
             }
         });
 
         findViewById(R.id.btn_link4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openUrl("https://news.google.com");
-                Log.d("Links log", "====Opened News Site====");
+                openUrl("https://spidertechnet.richmond.edu/TDClient/1955/Portal/KB/ArticleDet?ID=125025");
+                Log.d("Links log", "====Opened UR VPN Installation Web====");
             }
         });
 
-        // Set username in the header
+        // Header username
         TextView tvHeader = findViewById(R.id.tv_username_header);
         tvHeader.setText("Welcome, " + User.name);
 
-        // Home icon click listener
+        // Home icon click
         ImageView ivHome = findViewById(R.id.iv_home_icon);
         ivHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,12 +74,11 @@ public class HelpfulLinks extends AppCompatActivity {
                 Log.d("HelpfulLinks log", "====Home icon clicked - returning to Home====");
                 Intent intent = new Intent(getApplicationContext(), Home.class);
                 startActivity(intent);
-                // Optional: finish();  // close current activity
             }
         });
     }
 
-    // Method to open URL in browser.
+    // Open url in browser
     private void openUrl(String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(intent);

@@ -4,7 +4,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/background"
     android:padding="24dp">  <!-- optional dark background to match modern feel -->
 
     <!-- Login Title - centered at the top -->
@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
+        android:fontFamily="@font/bruno_ace"
         android:text="@string/login_title"
         android:textColor="@color/black"
         android:textSize="28sp"
@@ -32,6 +33,7 @@
         android:inputType="text"
         android:textColor="@color/black"
         android:textColorHint="#AAAAAA"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title" />
@@ -47,6 +49,7 @@
         android:inputType="textPassword"
         android:textColor="@color/black"
         android:textColorHint="#AAAAAA"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_username" />
@@ -57,7 +60,8 @@
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginTop="48dp"
-        android:backgroundTint="#2196F3"
+        android:backgroundTint="#467FAB"
+        android:fontFamily="sans-serif"
         android:text="Submit"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

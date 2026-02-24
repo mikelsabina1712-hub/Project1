@@ -1,6 +1,5 @@
 package com.example.project1;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,7 +29,7 @@ public class SignUp extends AppCompatActivity {
             return insets;
         });
 
-        // Assign variables to views from layout, identify using their IDs.
+        // Assign variables to views from layout
         EditText etName = findViewById(R.id.et_name);
         RadioGroup radioGroupGender = findViewById(R.id.radio_group_gender);
         EditText etAge = findViewById(R.id.et_age);
@@ -40,13 +39,13 @@ public class SignUp extends AppCompatActivity {
 
         Button btnSignup = findViewById(R.id.btn_signup);
 
-        // Setting an onClickListener on the above button to look for the click event.
+        // Click event
         btnSignup.setOnClickListener(new View.OnClickListener() {
-            // This part is inner class, as discussed in the previous lecture.
             @Override
             public void onClick(View view) {
-                // Read the text from EditTexts and convert to strings.
+                // Read the text from EditTexts and convert to strings
                 String name = etName.getText().toString().trim();
+
                 String gender = "";
                 int selectedId = radioGroupGender.getCheckedRadioButtonId();
 
@@ -60,38 +59,37 @@ public class SignUp extends AppCompatActivity {
                     gender = "Other";
                     Log.d("SignUp log", "====Gender selected: Other====");
                 } else {
-                    // Optional: show message if nothing selected
-                    Toast.makeText(SignUp.this, "Please select a gender", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUp.this, "All fields are required.", Toast.LENGTH_SHORT).show();
                     Log.d("SignUp log", "====No gender selected====");
-                    return;  // stop signup if gender not chosen
+                    return;
                 }
                 String age = etAge.getText().toString().trim();
                 String address = etAddress.getText().toString().trim();
                 String username = etUsername.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
 
-                // Check if all fields are filled.
+                // Check if all fields are filled
                 if (name.equals("") || gender.equals("") || age.equals("") || address.equals("") || username.equals("") || password.equals("")) {
                     Toast.makeText(SignUp.this, getString(R.string.fields_required), Toast.LENGTH_SHORT).show();
                     Log.d("SignUp log", "====Fields are required====");
                     return;
                 }
 
-                // Username validation: exactly 5 alphanumeric, lowercase, no space.
+                // Username validation: exactly 5 alphanumeric, lowercase, no space
                 if (!username.matches("^[a-z0-9]{5}$")) {
                     Toast.makeText(SignUp.this, getString(R.string.invalid_username), Toast.LENGTH_SHORT).show();
                     Log.d("SignUp log", "====Invalid username====");
                     return;
                 }
 
-                // Password validation: exactly 8 alphanumeric, start upper, has number, no space.
+                // Password validation: exactly 8 alphanumeric, start upper, has number, no space
                 if (!password.matches("^[A-Z][a-zA-Z0-9]{7}$") || !password.matches(".*\\d.*")) {
                     Toast.makeText(SignUp.this, getString(R.string.invalid_password), Toast.LENGTH_SHORT).show();
                     Log.d("SignUp log", "====Invalid password====");
                     return;
                 }
 
-                // Set global variables (as per project instructions).
+                // Global variables
                 User.name = name;
                 User.gender = gender;
                 User.age = age;
@@ -101,7 +99,7 @@ public class SignUp extends AppCompatActivity {
 
                 Log.d("SignUp log", "====Sign up successful====");
 
-                // Navigate to Login activity.
+                // Intent to Login Activity
                 Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
             }

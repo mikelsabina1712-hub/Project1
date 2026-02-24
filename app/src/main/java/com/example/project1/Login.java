@@ -28,21 +28,20 @@ public class Login extends AppCompatActivity {
             return insets;
         });
 
-        // Assign variables to views from layout, identify using their IDs.
+        // Assign variables to views from layout
         EditText etUsername = findViewById(R.id.et_username);
         EditText etPassword = findViewById(R.id.et_password);
 
         Button btnLogin = findViewById(R.id.btn_login);
 
-        // Setting an onClickListener on the above button to look for the click event.
+        // Click event
         btnLogin.setOnClickListener(new View.OnClickListener() {
-            // This part is inner class, as discussed in the previous lecture.
             @Override
             public void onClick(View view) {
                 String username = etUsername.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
 
-                // Check against global variables.
+                // Check global variables
                 if (username.equals(User.username) && password.equals(User.password)) {
                     Log.d("Login log", "====Login successful====");
                     Intent intent = new Intent(getApplicationContext(), Home.class);

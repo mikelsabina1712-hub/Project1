@@ -27,6 +27,10 @@
         <activity android:name=".BucketList" />
         <activity android:name=".FavoriteMemories" />
         <activity android:name=".HelpfulLinks" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

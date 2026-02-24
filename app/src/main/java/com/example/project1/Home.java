@@ -29,7 +29,7 @@ public class Home extends AppCompatActivity {
             return insets;
         });
 
-        // Display welcome message using global name.
+        // Welcome message
         TextView tvWelcome = findViewById(R.id.tv_welcome);
         tvWelcome.setText("Welcome " + User.name + ".");
 
@@ -37,7 +37,7 @@ public class Home extends AppCompatActivity {
         TextView tvHeader = findViewById(R.id.tv_username_header);
         tvHeader.setText("Welcome, " + User.name);
 
-        // Home icon click (in sub-screens like AccountSettings)
+        // Home icon click
         ImageView ivHome = findViewById(R.id.iv_home_icon);
         ivHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +46,7 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        // Navigation buttons to other activities.
+        // Activities buttons
         Button btnAccountSettings = findViewById(R.id.btn_account_settings);
         btnAccountSettings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +92,7 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        // Disable back button, i.e., the user should not be able to return to the login screen from this activity.
+        // Disable back button
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
