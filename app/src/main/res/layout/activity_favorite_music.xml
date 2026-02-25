@@ -20,7 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Username next to avatar -->
     <TextView
         android:id="@+id/tv_username_header"
         android:layout_width="wrap_content"
@@ -33,7 +32,6 @@
         app:layout_constraintStart_toEndOf="@id/iv_avatar"
         app:layout_constraintTop_toTopOf="@id/iv_avatar" />
 
-    <!-- Clickable Home Icon - top-right -->
     <ImageView
         android:id="@+id/iv_home_icon"
         android:layout_width="48dp"
@@ -50,7 +48,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/iv_avatar" />
 
-    <!-- Page Title -->
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
@@ -65,7 +62,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_avatar" />
 
-    <!-- Spinner for song selection -->
     <Spinner
         android:id="@+id/spinner_songs"
         android:layout_width="373dp"

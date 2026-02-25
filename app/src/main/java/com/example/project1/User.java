@@ -1,6 +1,6 @@
 package com.example.project1;
 
-// Global user data (as per instructions, not best practice)
+// Global user data
 public class User {
     public static String name = "";
     public static String gender = "";

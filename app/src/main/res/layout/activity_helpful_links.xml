@@ -7,9 +7,6 @@
     android:background="@drawable/background"
     android:padding="16dp">
 
-    <!-- ============================================= -->
-    <!--             Top Header Bar                  -->
-    <!-- ============================================= -->
 
     <ImageView
         android:id="@+id/iv_avatar"
@@ -24,7 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Username next to avatar -->
     <TextView
         android:id="@+id/tv_username_header"
         android:layout_width="wrap_content"
@@ -37,7 +33,6 @@
         app:layout_constraintStart_toEndOf="@id/iv_avatar"
         app:layout_constraintTop_toTopOf="@id/iv_avatar" />
 
-    <!-- Clickable Home Icon - top-right -->
     <ImageView
         android:id="@+id/iv_home_icon"
         android:layout_width="48dp"
@@ -54,11 +49,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/iv_avatar" />
 
-    <!-- ============================================= -->
-    <!--             Page Content                    -->
-    <!-- ============================================= -->
-
-    <!-- Page Title -->
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
@@ -73,7 +63,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_avatar" />
 
-    <!-- Link buttons (full width, chained vertically) -->
     <Button
         android:id="@+id/btn_link1"
         android:layout_width="0dp"

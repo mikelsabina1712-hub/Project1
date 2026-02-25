@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:padding="24dp">  <!-- optional dark background to match modern feel -->
+    android:padding="24dp">
 
-    <!-- Login Title - centered at the top -->
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
@@ -22,7 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Username field -->
     <EditText
         android:id="@+id/et_username"
         android:layout_width="360dp"
@@ -38,7 +36,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
-    <!-- Password field -->
     <EditText
         android:id="@+id/et_password"
         android:layout_width="364dp"
@@ -54,7 +51,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_username" />
 
-    <!-- Login Button -->
     <Button
         android:id="@+id/btn_login"
         android:layout_width="0dp"

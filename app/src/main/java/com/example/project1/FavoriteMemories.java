@@ -19,12 +19,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class FavoriteMemories extends AppCompatActivity {
 
-    LinearLayout layoutMemories;
-    String[][] memories = {
-            {"Graduation Day", "The day I graduated from college was unforgettable.", "memory_graduation"}, // Assume drawable
-            {"Family Vacation", "Our trip to the beach was full of fun.", "memory_vacation"},
-            {"First Job", "Starting my first job was exciting.", "memory_job"}
-    };
+    LinearLayout safariMemory;
+    LinearLayout graduationMemory;
+    LinearLayout footballMemory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,66 +35,54 @@ public class FavoriteMemories extends AppCompatActivity {
             return insets;
         });
 
-        layoutMemories = findViewById(R.id.layout_memories);
-        EditText etFilter = findViewById(R.id.et_filter);
-
-        Button btnFilter = findViewById(R.id.btn_submit_filter);
-        btnFilter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String filter = etFilter.getText().toString().trim().toLowerCase();
-                displayMemories(filter);
-                Log.d("Memories log", "====Filter applied: " + filter + "====");
-            }
-        });
-
-        displayMemories(""); // Initial display all
-
-        // Set username in the header
         TextView tvHeader = findViewById(R.id.tv_username_header);
         tvHeader.setText("Welcome, " + User.name);
 
-        // Home icon click listener
-        ImageView ivHome = findViewById(R.id.iv_home_icon);
-        ivHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("FavoriteMemories log", "====Home icon clicked - returning to Home====");
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                startActivity(intent);
-                // Optional: finish();  // close current activity
+        safariMemory = findViewById(R.id.safari_memory);
+        graduationMemory = findViewById(R.id.graduation_memory);
+        footballMemory = findViewById(R.id.football_memory);
+
+        EditText etFilter = findViewById(R.id.et_filter);
+        Button btnFilter = findViewById(R.id.btn_submit_filter);
+
+        btnFilter.setOnClickListener( view -> {
+            String filter = etFilter.getText().toString().trim().toLowerCase();
+
+            // While nothing is submitted in the filter, show all memories
+            if (filter.isEmpty()) {
+                safariMemory.setVisibility(View.VISIBLE);
+                graduationMemory.setVisibility(View.VISIBLE);
+                footballMemory.setVisibility(View.VISIBLE);
+                return;
+            }
+
+            // Safari memory
+            if ("roars at sunset".toLowerCase().contains(filter)) {
+                safariMemory.setVisibility(View.VISIBLE);
+            } else {
+                safariMemory.setVisibility(View.GONE);
+            }
+
+            // Graduation memory
+            if ("a milestone achieved".toLowerCase().contains(filter)) {
+                graduationMemory.setVisibility(View.VISIBLE);
+            } else {
+                graduationMemory.setVisibility(View.GONE);
+            }
+
+            // Football memory
+            if ("a magical night at the bernabéu".toLowerCase().contains(filter)) {
+                footballMemory.setVisibility(View.VISIBLE);
+            } else {
+                footballMemory.setVisibility(View.GONE);
             }
         });
-    }
 
-    /**
-     * Displays memories based on filter (bonus: not case-sensitive).
-     * Clears existing views and adds matching ones.
-     */
-    private void displayMemories(String filter) {
-        // Clear existing memories (keep title, filter, home button).
-        layoutMemories.removeViews(3, layoutMemories.getChildCount() - 4);
-
-        for (String[] memory : memories) {
-            if (filter.equals("") || memory[0].toLowerCase().contains(filter)) {
-                TextView tvTitle = new TextView(this);
-                tvTitle.setText(memory[0]);
-                tvTitle.setTextSize(18f);
-
-                TextView tvDesc = new TextView(this);
-                tvDesc.setText(memory[1]);
-
-                ImageView iv = new ImageView(this);
-                int resId = getResources().getIdentifier(memory[2], "drawable", getPackageName());
-                iv.setImageResource(resId);
-                iv.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 200));
-
-                layoutMemories.addView(tvTitle);
-                layoutMemories.addView(tvDesc);
-                layoutMemories.addView(iv);
-
-                Log.d("Memories log", "====Added memory: " + memory[0] + "====");
-            }
-        }
+        // Home button
+        ImageView ivHome = findViewById(R.id.iv_home_icon);
+        ivHome.setOnClickListener(view -> {
+            Intent intent = new Intent(FavoriteMemories.this, Home.class);
+            startActivity(intent);
+        });
     }
 }

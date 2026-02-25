@@ -96,7 +96,6 @@ public class Home extends AppCompatActivity {
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                // Do nothing
                 Log.d("Home log", "====Back button disabled====");
             }
         });
